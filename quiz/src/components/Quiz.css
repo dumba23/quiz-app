@@ -1,0 +1,36 @@
+.container{
+    margin-top:16em;
+    padding:10px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+
+.eachQues{
+    padding:10px;
+    height:fit-content;
+ 
+}
+
+.answers{ 
+    padding:10px;
+    height:fit-content;
+    width:100%;
+}
+
+.content{
+    background-color: #9fa8a3;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    border-radius:1em;
+}
+
+.point{
+    display:flex;
+    align-items: center;
+    font-size:small;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+

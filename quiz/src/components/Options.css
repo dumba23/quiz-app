@@ -1,0 +1,32 @@
+body{
+    background-color: #c5d5cb;
+}
+
+.form{  
+    margin-top:16em;
+ 
+}
+
+.field{
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    margin-top:3em;
+}
+
+.selectForm{
+    padding:10px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:15em;
+    background-color: #9fa8a3;
+    border-radius:1em;
+}
+
+p{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
