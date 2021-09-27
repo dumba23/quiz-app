@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './Quiz.css'
 
-const Quiz = ({questions, counterQues, counterPoint}) => {  
+const Quiz = ({questions, counterPoint}) => {  
     const history = useHistory();
 
     const [currQues, setCurrQues] = useState(0);  
@@ -11,31 +11,26 @@ const Quiz = ({questions, counterQues, counterPoint}) => {
     const handleFinish = () => {
         history.push('/restart');
     }
+
     useEffect(()=>{
-        counterQues(currQues);
-        counterPoint(count);
-        if(currQues===9){
-            questions=null;
+        if(currQues===9 ){
+            counterPoint(count);
             handleFinish();
         }
-    });
+    },[currQues]);
    
-    const handleShuffle = (array,correct) => {
-        array.push(correct);
-        return array.sort(() => Math.random() - 0.5) 
-    };
-    
+
     if (questions.length === 0) {
         return null;
     };
       
     const { question, incorrect_answers, correct_answer } = questions[currQues];
-    const answers = handleShuffle(incorrect_answers, correct_answer);
-
+    const answers = [...incorrect_answers, correct_answer].sort(() => Math.random() - 0.5);
+    
     return (
         <div className="container">
                 <div className="currQues">
-                <p>Question: {currQues}/10 </p>
+                <p>Question: {currQues+1}/10 </p>
                 </div>
             <div className="content">
           

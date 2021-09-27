@@ -6,12 +6,11 @@ import Restart from './Restart';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 const App = () => {
-    const [currQues,setCurrQues] = useState(null);
     const [questions,setQuestions] = useState([]);
     const [category, setCategory] = useState('9');
     const [difficulty, setDifficulty] = useState('easy');
-    const [point,setPoint] = useState(null);
-
+    const [point,setPoint] = useState(0);
+ 
     const  search = async () =>{
         const { data } = await axios.get('https://opentdb.com/api.php',{
           params: {
@@ -28,10 +27,6 @@ const App = () => {
         setPoint(point);
     }
 
-    function handleQues(ques){
-        setCurrQues(ques);
-    }
-
     function handleCategory(cat) {
         setCategory(cat);
       }
@@ -43,16 +38,16 @@ const App = () => {
     return(
         <Router>
             <Route exact path="/" render={() => 
-            <Options onDif={handleDifficulty} onCat={handleCategory} onSubmit={search}
-       />}/>
+            <Options onDif={handleDifficulty} onCat={handleCategory} onSubmit={search}/>
+        }/>
             <Route path="/quiz" render = {() => 
-             <Quiz questions={questions} counterQues={handleQues} counterPoint={handleCount}/>
+             <Quiz questions={questions}  counterPoint={handleCount}/>
         }/> 
             <Route path="/restart" render = {()=>
-            <Restart countQues={currQues} countPoint={point}/>
+            <Restart countPoint={point}/>
         }/>
         </Router>
-        )
+        )  
     
 }
 export default App;

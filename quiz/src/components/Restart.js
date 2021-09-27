@@ -1,7 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import './Restart.css';
 
-const Restart = ({ countQues, countPoint }) =>{
+const Restart = ({ countPoint }) =>{
     const history = useHistory();
 
     const handleRestart = () =>{
@@ -11,24 +12,39 @@ const Restart = ({ countQues, countPoint }) =>{
 
     if(countPoint <= 5){
         return( 
-                <div className="">
+            <div className="restart-container">
+                <div className="restart-content">
                     <p>{countPoint}/10 We are sorry for your results maybe try again...</p>
-                    <button onClick={handleRestart}>Restart</button>
+                    <button className="ui button" 
+                    onClick={handleRestart}>
+                    Restart
+                    </button>
                 </div>
+            </div>    
         );
     }else if(countPoint > 5 && countPoint <= 7){
         return (
-            <div className="">
-                <p>{countPoint}/10 Not bad! But we hope you will learn more...</p>
-                <button onClick={handleRestart}>Restart</button>
+            <div className="restart-container">
+                <div className="restart-content">
+                    <p>{countPoint}/10 Not bad! But we hope you will learn more...</p>
+                    <button className="ui button"
+                    onClick={handleRestart}>
+                    Restart
+                    </button>
+                </div>             
             </div>
         );
     }else
 
     return (
-        <div className="container">
-            <p>{countPoint}/10 You are absolutely genius! Hope you didn't use google...</p>
-            <button onClick={handleRestart}>Restart</button>
+        <div className="restart-container">
+            <div className="restart-content">
+                <p>{countPoint}/10 You are absolutely genius! Hope you didn't use google...</p>
+                    <button className="ui button" 
+                    onClick={handleRestart}>
+                    Restart
+                    </button>
+            </div>
         </div>
     );
 }
