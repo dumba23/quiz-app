@@ -23,15 +23,15 @@ const App = () => {
       setQuestions(data.results);
     };
     
-    function handleCount(point){
+    const handleCount = (point) => {
         setPoint(point);
     }
 
-    function handleCategory(cat) {
+    const handleCategory = (cat) => {
         setCategory(cat);
       }
 
-    function handleDifficulty(dif){
+    const handleDifficulty = (dif) => {
         setDifficulty(dif);
     }
 
